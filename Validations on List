@@ -1,0 +1,36 @@
+#unit test.cs
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework;
+namespace DemoAppCore
+{
+    [TestFixture]
+    public class UnitTest
+    {
+        [Test]
+        public void Test_FinalList_UniqueValues()
+        {
+            // Get the list from the Program class
+            List<Student> actualList = Program.FinalList();
+            // Logic: A list has unique values if its count equals the count of its distinct elements
+            int uniqueCount = actualList.Select(s => s.Id).Distinct().Count();
+            int totalCount = actualList.Count;
+            // Assert whether the actual unique count is equal to the expected total count
+            Assert.AreEqual(totalCount, uniqueCount);
+        }
+        [Test]
+        public void Test_FinalList_AddingValuesToList()
+        {
+            // Get the list from the Program class
+            List<Student> actualList = Program.FinalList();
+            // Expected count is 3 based on the Program.cs reference (Suresh, Karthick, Prem)
+            int expectedCount = 3;
+            // Assert whether the actual count is equal to the expected count
+            Assert.AreEqual(expectedCount, actualList.Count);
+        }
+    }
+}
