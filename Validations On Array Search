@@ -1,0 +1,32 @@
+#unit test.cs
+
+using System;
+using NUnit.Framework;
+namespace ArraySearch
+{
+    // 1) Added the required test attribute for the class
+    [TestFixture]
+    public class UnitTest
+    {
+        // 2) Added the required test attribute for the first method
+        [Test]
+        public void Test_AddValues_RightValue()
+        {
+            // Act: Passing a value that exists in the logic (0-9)
+            int? actual = Program.AddValues(5);
+            int expected = 5;
+            // 3) & 4) Use only one Assert to check if actual equals expected
+            Assert.AreEqual(expected, actual);
+        }
+        // 2) Added the required test attribute for the second method
+        [Test]
+        public void Test_AddValues_ValueNotFound()
+        {
+            // Act: Passing a value that does NOT exist in the array (e.g., 15)
+            int? actual = Program.AddValues(15);
+            int expected = 0;
+            // 3) & 4) Use only one Assert to check if actual equals expected
+            Assert.AreEqual(expected, actual);
+        }
+    }
+}
