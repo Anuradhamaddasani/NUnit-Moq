@@ -1,0 +1,21 @@
+#unit test.cs 
+
+using System.Text;
+using NUnit.Framework;
+namespace StringConcatenation
+{
+    //Add required NUnit test attribute
+    [TestFixture]
+    public class UnitTest
+    {
+
+        [Test]
+        public void Test_Message_String(){
+            string input1="Hello";
+            string input2="World";
+            string expected= "Hello World";
+            string actual=Program.Message(input1,input2);
+            Assert.AreEqual(expected, actual);
+        }
+    }
+}
