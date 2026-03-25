@@ -1,0 +1,31 @@
+#unit test.cs
+
+
+using System;
+using NUnit.Framework;
+namespace ArrayMultiplication
+{
+    [TestFixture]
+    public class UnitTest
+    {
+        [Test]
+        public void Test_Multiply_NotReturningNull()
+        {
+            // Act
+            int[] result = Program.Multiply(5);
+            // Assert: Checks if the returned array is not null
+            Assert.IsNotNull(result);
+        }
+        [Test]
+        public void Test_Multiply_RightValue()
+        {
+            // Arrange
+            int input = 5;
+            int[] expected = { 0, 5, 10, 15, 20, 25, 30, 35, 40, 45 };
+            // Act
+            int[] actual = Program.Multiply(input);
+            // Assert: Checks if the actual array is equal to the expected array
+            Assert.AreEqual(expected, actual);
+        }
+    }
+}
